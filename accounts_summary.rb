@@ -33,7 +33,9 @@ transactions.each do |transaction|
   account.transactions << transaction
 end
 
-binding.pry
+accounts.each do |account|
+  puts account.summary
+end
 
 
 

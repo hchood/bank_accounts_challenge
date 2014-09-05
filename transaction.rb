@@ -1,5 +1,5 @@
 class Transaction
-  attr_reader :account_name
+  attr_reader :account_name, :amount
 
   def initialize(transaction_data)
     @date = transaction_data['Date']
