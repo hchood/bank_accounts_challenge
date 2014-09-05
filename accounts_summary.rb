@@ -23,6 +23,16 @@ CSV.foreach('bank_data.csv', headers: true, converters: :numeric) do |row|
   transactions << Transaction.new(row)
 end
 
+# associate Transactions with the correct account
+# (take each transaction and put it in it's account's @transactions array)
+
+transactions.each do |transaction|
+  # - find account that transaction belongs to
+  account = accounts.find { |acct| acct.name == transaction.account_name }
+  # - push transaction into that account's @transactions array
+  account.transactions << transaction
+end
+
 binding.pry
 
 
