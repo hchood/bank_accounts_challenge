@@ -23,5 +23,16 @@ class Account
       Starting Balance:\t$#{starting_balance}
       Ending Balance:\t$#{current_balance}
     }
+
+    transactions.each do |transaction|
+      string << transaction.summary
+    end
+
+    string
   end
 end
+
+
+
+
+

@@ -1,5 +1,5 @@
 class Transaction
-  attr_reader :account_name, :amount
+  attr_reader :account_name, :amount, :date, :description
 
   def initialize(transaction_data)
     @date = transaction_data['Date']
@@ -9,8 +9,18 @@ class Transaction
   end
 
   def deposit?
+    amount > 0
+  end
+
+  def type
+    if deposit?
+      'DEPOSIT'
+    else
+      'WITHDRAWAL'
+    end
   end
 
   def summary
+    "#{amount}\t#{type}\t#{date} - #{description}\n"
   end
 end
