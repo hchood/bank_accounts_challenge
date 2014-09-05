@@ -19,16 +19,16 @@ class Account
 
   def summary
     string = %Q{
-      ==== #{name} ====
-      Starting Balance:\t$#{starting_balance}
-      Ending Balance:\t$#{current_balance}
-    }
+==== #{name} ====
+Starting Balance:\t$#{'%.2f' % starting_balance}
+Ending Balance:\t\t$#{'%.2f' % current_balance}\n\n
+}
 
     transactions.each do |transaction|
       string << transaction.summary
     end
 
-    string
+    string + "=========\n\n"
   end
 end
 

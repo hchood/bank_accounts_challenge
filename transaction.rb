@@ -14,13 +14,13 @@ class Transaction
 
   def type
     if deposit?
-      'DEPOSIT'
+      "DEPOSIT\t"
     else
-      'WITHDRAWAL'
+      "\tWITHDRAWAL"
     end
   end
 
   def summary
-    "#{amount}\t#{type}\t#{date} - #{description}\n"
+    "$#{'%.2f' % amount.abs}\t#{type}\t#{date} - #{description}\n"
   end
 end
